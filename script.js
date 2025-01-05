@@ -1,12 +1,12 @@
-const question = document.querySelectorAll(".questions .box");
+const questions = $(".questions .box");
 
-$(question).click(function () {
+$(questions).click(function () {
   let clickItem = this;
-  $(this).hasClass("active") ? $(this).removeClass("active") : $(this).addClass("active");
+  $(this).toggleClass("active");
 
-  question.forEach((item) => {
-    if (clickItem.id !== item.id) {
-      $(item).removeClass("active");
+  questions.each(function () {
+    if (this !== clickItem) {
+      $(this).removeClass("active");
     }
   });
 });
